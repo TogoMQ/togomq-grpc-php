@@ -27,9 +27,9 @@ class PubMessageRequest extends \Google\Protobuf\Internal\Message
      */
     protected $postpone = 0;
     /**
-     * Generated from protobuf field <code>int64 expiration = 4 [json_name = "expiration"];</code>
+     * Generated from protobuf field <code>int64 retention = 4 [json_name = "retention"];</code>
      */
-    protected $expiration = 0;
+    protected $retention = 0;
     /**
      * Generated from protobuf field <code>map<string, string> variables = 5 [json_name = "variables"];</code>
      */
@@ -44,7 +44,7 @@ class PubMessageRequest extends \Google\Protobuf\Internal\Message
      *     @type string $topic
      *     @type string $body
      *     @type int|string $postpone
-     *     @type int|string $expiration
+     *     @type int|string $retention
      *     @type array|\Google\Protobuf\Internal\MapField $variables
      * }
      */
@@ -120,23 +120,23 @@ class PubMessageRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>int64 expiration = 4 [json_name = "expiration"];</code>
+     * Generated from protobuf field <code>int64 retention = 4 [json_name = "retention"];</code>
      * @return int|string
      */
-    public function getExpiration()
+    public function getRetention()
     {
-        return $this->expiration;
+        return $this->retention;
     }
 
     /**
-     * Generated from protobuf field <code>int64 expiration = 4 [json_name = "expiration"];</code>
+     * Generated from protobuf field <code>int64 retention = 4 [json_name = "retention"];</code>
      * @param int|string $var
      * @return $this
      */
-    public function setExpiration($var)
+    public function setRetention($var)
     {
         GPBUtil::checkInt64($var);
-        $this->expiration = $var;
+        $this->retention = $var;
 
         return $this;
     }
