@@ -1,0 +1,23 @@
+{
+    "name": "togomq/togomq-grpc",
+    "description": "This is automated build of TogoMQ protos.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Mq\\V1\\": "src/Mq/V1/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Enter Pages Pro Ltd",
+            "email": "dev@enterpages.co.uk"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.4",
+        "grpc/grpc": "^1.74",
+        "google/protobuf": "^3.21"
+    }
+}
