@@ -16,7 +16,7 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "php": ">=7.4",
+        "php": ">=7.0.0",
         "grpc/grpc": "^1.74",
         "google/protobuf": "^3.21"
     }

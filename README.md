@@ -23,7 +23,7 @@ Use the generated PHP classes in your project to work with the message types and
 ### Install with Composer
 
 ```sh
-composer require togomq/togomq-grpc
+composer require togomq/togomq-grpc:dev-main
 ```
 
 ### Usage Example
