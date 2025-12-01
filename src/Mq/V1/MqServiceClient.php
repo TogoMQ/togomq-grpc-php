@@ -21,25 +21,22 @@ class MqServiceClient extends \Grpc\BaseStub {
     /**
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\ClientStreamingCall
+     * @return \Grpc\BidiStreamingCall
      */
     public function PubMessage($metadata = [], $options = []) {
-        return $this->_clientStreamRequest('/mq.v1.MqService/PubMessage',
+        return $this->_bidiRequest('/mq.v1.MqService/PubMessage',
         ['\Mq\V1\PubMessageResponse','decode'],
         $metadata, $options);
     }
 
     /**
-     * @param \Mq\V1\SubMessageRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Grpc\ServerStreamingCall
+     * @return \Grpc\BidiStreamingCall
      */
-    public function SubMessage(\Mq\V1\SubMessageRequest $argument,
-      $metadata = [], $options = []) {
-        return $this->_serverStreamRequest('/mq.v1.MqService/SubMessage',
-        $argument,
-        ['\Mq\V1\SubMessageResponse', 'decode'],
+    public function SubMessage($metadata = [], $options = []) {
+        return $this->_bidiRequest('/mq.v1.MqService/SubMessage',
+        ['\Mq\V1\SubMessageResponse','decode'],
         $metadata, $options);
     }
 

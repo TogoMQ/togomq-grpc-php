@@ -15,21 +15,41 @@ use Google\Protobuf\RepeatedField;
 class SubMessageResponse extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>string topic = 1 [json_name = "topic"];</code>
+     * Generated from protobuf field <code>int64 status = 1 [json_name = "status"];</code>
      */
-    protected $topic = '';
+    protected $status = 0;
     /**
-     * Generated from protobuf field <code>string uuid = 2 [json_name = "uuid"];</code>
+     * Generated from protobuf field <code>string msg_uuid = 2 [json_name = "msgUuid"];</code>
      */
-    protected $uuid = '';
+    protected $msg_uuid = '';
     /**
-     * Generated from protobuf field <code>bytes body = 3 [json_name = "body"];</code>
-     */
-    protected $body = '';
-    /**
-     * Generated from protobuf field <code>map<string, string> variables = 4 [json_name = "variables"];</code>
+     * Generated from protobuf field <code>map<string, string> variables = 3 [json_name = "variables"];</code>
      */
     private $variables;
+    /**
+     * Generated from protobuf field <code>bool chunk_last = 4 [json_name = "chunkLast"];</code>
+     */
+    protected $chunk_last = false;
+    /**
+     * Generated from protobuf field <code>int64 chunk_no = 5 [json_name = "chunkNo"];</code>
+     */
+    protected $chunk_no = 0;
+    /**
+     * Generated from protobuf field <code>int64 total_size = 6 [json_name = "totalSize"];</code>
+     */
+    protected $total_size = 0;
+    /**
+     * Generated from protobuf field <code>bytes data = 7 [json_name = "data"];</code>
+     */
+    protected $data = '';
+    /**
+     * Generated from protobuf field <code>int64 timestamp = 8 [json_name = "timestamp"];</code>
+     */
+    protected $timestamp = 0;
+    /**
+     * Generated from protobuf field <code>bool end_of_stream = 9 [json_name = "endOfStream"];</code>
+     */
+    protected $end_of_stream = false;
 
     /**
      * Constructor.
@@ -37,10 +57,15 @@ class SubMessageResponse extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type string $topic
-     *     @type string $uuid
-     *     @type string $body
+     *     @type int|string $status
+     *     @type string $msg_uuid
      *     @type array|\Google\Protobuf\Internal\MapField $variables
+     *     @type bool $chunk_last
+     *     @type int|string $chunk_no
+     *     @type int|string $total_size
+     *     @type string $data
+     *     @type int|string $timestamp
+     *     @type bool $end_of_stream
      * }
      */
     public function __construct($data = NULL) {
@@ -49,73 +74,51 @@ class SubMessageResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string topic = 1 [json_name = "topic"];</code>
-     * @return string
+     * Generated from protobuf field <code>int64 status = 1 [json_name = "status"];</code>
+     * @return int|string
      */
-    public function getTopic()
+    public function getStatus()
     {
-        return $this->topic;
+        return $this->status;
     }
 
     /**
-     * Generated from protobuf field <code>string topic = 1 [json_name = "topic"];</code>
+     * Generated from protobuf field <code>int64 status = 1 [json_name = "status"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setStatus($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->status = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string msg_uuid = 2 [json_name = "msgUuid"];</code>
+     * @return string
+     */
+    public function getMsgUuid()
+    {
+        return $this->msg_uuid;
+    }
+
+    /**
+     * Generated from protobuf field <code>string msg_uuid = 2 [json_name = "msgUuid"];</code>
      * @param string $var
      * @return $this
      */
-    public function setTopic($var)
+    public function setMsgUuid($var)
     {
         GPBUtil::checkString($var, True);
-        $this->topic = $var;
+        $this->msg_uuid = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>string uuid = 2 [json_name = "uuid"];</code>
-     * @return string
-     */
-    public function getUuid()
-    {
-        return $this->uuid;
-    }
-
-    /**
-     * Generated from protobuf field <code>string uuid = 2 [json_name = "uuid"];</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setUuid($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->uuid = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>bytes body = 3 [json_name = "body"];</code>
-     * @return string
-     */
-    public function getBody()
-    {
-        return $this->body;
-    }
-
-    /**
-     * Generated from protobuf field <code>bytes body = 3 [json_name = "body"];</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setBody($var)
-    {
-        GPBUtil::checkString($var, False);
-        $this->body = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>map<string, string> variables = 4 [json_name = "variables"];</code>
+     * Generated from protobuf field <code>map<string, string> variables = 3 [json_name = "variables"];</code>
      * @return \Google\Protobuf\Internal\MapField
      */
     public function getVariables()
@@ -124,7 +127,7 @@ class SubMessageResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>map<string, string> variables = 4 [json_name = "variables"];</code>
+     * Generated from protobuf field <code>map<string, string> variables = 3 [json_name = "variables"];</code>
      * @param array|\Google\Protobuf\Internal\MapField $var
      * @return $this
      */
@@ -132,6 +135,138 @@ class SubMessageResponse extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
         $this->variables = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool chunk_last = 4 [json_name = "chunkLast"];</code>
+     * @return bool
+     */
+    public function getChunkLast()
+    {
+        return $this->chunk_last;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool chunk_last = 4 [json_name = "chunkLast"];</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setChunkLast($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->chunk_last = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 chunk_no = 5 [json_name = "chunkNo"];</code>
+     * @return int|string
+     */
+    public function getChunkNo()
+    {
+        return $this->chunk_no;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 chunk_no = 5 [json_name = "chunkNo"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setChunkNo($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->chunk_no = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 total_size = 6 [json_name = "totalSize"];</code>
+     * @return int|string
+     */
+    public function getTotalSize()
+    {
+        return $this->total_size;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 total_size = 6 [json_name = "totalSize"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setTotalSize($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->total_size = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bytes data = 7 [json_name = "data"];</code>
+     * @return string
+     */
+    public function getData()
+    {
+        return $this->data;
+    }
+
+    /**
+     * Generated from protobuf field <code>bytes data = 7 [json_name = "data"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setData($var)
+    {
+        GPBUtil::checkString($var, False);
+        $this->data = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 timestamp = 8 [json_name = "timestamp"];</code>
+     * @return int|string
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 timestamp = 8 [json_name = "timestamp"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setTimestamp($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->timestamp = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool end_of_stream = 9 [json_name = "endOfStream"];</code>
+     * @return bool
+     */
+    public function getEndOfStream()
+    {
+        return $this->end_of_stream;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool end_of_stream = 9 [json_name = "endOfStream"];</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setEndOfStream($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->end_of_stream = $var;
 
         return $this;
     }

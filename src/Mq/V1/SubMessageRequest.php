@@ -21,13 +21,25 @@ class SubMessageRequest extends \Google\Protobuf\Internal\Message
      */
     protected $topic = '';
     /**
-     * Generated from protobuf field <code>int64 batch = 2 [json_name = "batch"];</code>
+     * Generated from protobuf field <code>int64 from_timestamp = 2 [json_name = "fromTimestamp"];</code>
      */
-    protected $batch = 0;
+    protected $from_timestamp = 0;
     /**
-     * Generated from protobuf field <code>int64 speed_per_sec = 3 [json_name = "speedPerSec"];</code>
+     * Generated from protobuf field <code>int64 to_timestamp = 3 [json_name = "toTimestamp"];</code>
      */
-    protected $speed_per_sec = 0;
+    protected $to_timestamp = 0;
+    /**
+     * Generated from protobuf field <code>int64 max_messages = 4 [json_name = "maxMessages"];</code>
+     */
+    protected $max_messages = 0;
+    /**
+     * Generated from protobuf field <code>bool continuous = 5 [json_name = "continuous"];</code>
+     */
+    protected $continuous = false;
+    /**
+     * Generated from protobuf field <code>string ack_msg_uuid = 6 [json_name = "ackMsgUuid"];</code>
+     */
+    protected $ack_msg_uuid = '';
 
     /**
      * Constructor.
@@ -37,8 +49,11 @@ class SubMessageRequest extends \Google\Protobuf\Internal\Message
      *
      *     @type string $topic
      *           wildcard or exact topic
-     *     @type int|string $batch
-     *     @type int|string $speed_per_sec
+     *     @type int|string $from_timestamp
+     *     @type int|string $to_timestamp
+     *     @type int|string $max_messages
+     *     @type bool $continuous
+     *     @type string $ack_msg_uuid
      * }
      */
     public function __construct($data = NULL) {
@@ -73,45 +88,111 @@ class SubMessageRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>int64 batch = 2 [json_name = "batch"];</code>
+     * Generated from protobuf field <code>int64 from_timestamp = 2 [json_name = "fromTimestamp"];</code>
      * @return int|string
      */
-    public function getBatch()
+    public function getFromTimestamp()
     {
-        return $this->batch;
+        return $this->from_timestamp;
     }
 
     /**
-     * Generated from protobuf field <code>int64 batch = 2 [json_name = "batch"];</code>
+     * Generated from protobuf field <code>int64 from_timestamp = 2 [json_name = "fromTimestamp"];</code>
      * @param int|string $var
      * @return $this
      */
-    public function setBatch($var)
+    public function setFromTimestamp($var)
     {
         GPBUtil::checkInt64($var);
-        $this->batch = $var;
+        $this->from_timestamp = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>int64 speed_per_sec = 3 [json_name = "speedPerSec"];</code>
+     * Generated from protobuf field <code>int64 to_timestamp = 3 [json_name = "toTimestamp"];</code>
      * @return int|string
      */
-    public function getSpeedPerSec()
+    public function getToTimestamp()
     {
-        return $this->speed_per_sec;
+        return $this->to_timestamp;
     }
 
     /**
-     * Generated from protobuf field <code>int64 speed_per_sec = 3 [json_name = "speedPerSec"];</code>
+     * Generated from protobuf field <code>int64 to_timestamp = 3 [json_name = "toTimestamp"];</code>
      * @param int|string $var
      * @return $this
      */
-    public function setSpeedPerSec($var)
+    public function setToTimestamp($var)
     {
         GPBUtil::checkInt64($var);
-        $this->speed_per_sec = $var;
+        $this->to_timestamp = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 max_messages = 4 [json_name = "maxMessages"];</code>
+     * @return int|string
+     */
+    public function getMaxMessages()
+    {
+        return $this->max_messages;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 max_messages = 4 [json_name = "maxMessages"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setMaxMessages($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->max_messages = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool continuous = 5 [json_name = "continuous"];</code>
+     * @return bool
+     */
+    public function getContinuous()
+    {
+        return $this->continuous;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool continuous = 5 [json_name = "continuous"];</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setContinuous($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->continuous = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string ack_msg_uuid = 6 [json_name = "ackMsgUuid"];</code>
+     * @return string
+     */
+    public function getAckMsgUuid()
+    {
+        return $this->ack_msg_uuid;
+    }
+
+    /**
+     * Generated from protobuf field <code>string ack_msg_uuid = 6 [json_name = "ackMsgUuid"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setAckMsgUuid($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->ack_msg_uuid = $var;
 
         return $this;
     }

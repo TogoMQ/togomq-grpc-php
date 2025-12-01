@@ -15,9 +15,17 @@ use Google\Protobuf\RepeatedField;
 class PubMessageResponse extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>int64 messages_received = 1 [json_name = "messagesReceived"];</code>
+     * Generated from protobuf field <code>int64 status = 1 [json_name = "status"];</code>
      */
-    protected $messages_received = 0;
+    protected $status = 0;
+    /**
+     * Generated from protobuf field <code>int64 no = 2 [json_name = "no"];</code>
+     */
+    protected $no = 0;
+    /**
+     * Generated from protobuf field <code>string msg_uuid = 3 [json_name = "msgUuid"];</code>
+     */
+    protected $msg_uuid = '';
 
     /**
      * Constructor.
@@ -25,7 +33,9 @@ class PubMessageResponse extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type int|string $messages_received
+     *     @type int|string $status
+     *     @type int|string $no
+     *     @type string $msg_uuid
      * }
      */
     public function __construct($data = NULL) {
@@ -34,23 +44,67 @@ class PubMessageResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>int64 messages_received = 1 [json_name = "messagesReceived"];</code>
+     * Generated from protobuf field <code>int64 status = 1 [json_name = "status"];</code>
      * @return int|string
      */
-    public function getMessagesReceived()
+    public function getStatus()
     {
-        return $this->messages_received;
+        return $this->status;
     }
 
     /**
-     * Generated from protobuf field <code>int64 messages_received = 1 [json_name = "messagesReceived"];</code>
+     * Generated from protobuf field <code>int64 status = 1 [json_name = "status"];</code>
      * @param int|string $var
      * @return $this
      */
-    public function setMessagesReceived($var)
+    public function setStatus($var)
     {
         GPBUtil::checkInt64($var);
-        $this->messages_received = $var;
+        $this->status = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 no = 2 [json_name = "no"];</code>
+     * @return int|string
+     */
+    public function getNo()
+    {
+        return $this->no;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 no = 2 [json_name = "no"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setNo($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->no = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string msg_uuid = 3 [json_name = "msgUuid"];</code>
+     * @return string
+     */
+    public function getMsgUuid()
+    {
+        return $this->msg_uuid;
+    }
+
+    /**
+     * Generated from protobuf field <code>string msg_uuid = 3 [json_name = "msgUuid"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setMsgUuid($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->msg_uuid = $var;
 
         return $this;
     }

@@ -19,9 +19,9 @@ class PubMessageRequest extends \Google\Protobuf\Internal\Message
      */
     protected $topic = '';
     /**
-     * Generated from protobuf field <code>bytes body = 2 [json_name = "body"];</code>
+     * Generated from protobuf field <code>string msg_uuid = 2 [json_name = "msgUuid"];</code>
      */
-    protected $body = '';
+    protected $msg_uuid = '';
     /**
      * Generated from protobuf field <code>int64 postpone = 3 [json_name = "postpone"];</code>
      */
@@ -34,6 +34,26 @@ class PubMessageRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>map<string, string> variables = 5 [json_name = "variables"];</code>
      */
     private $variables;
+    /**
+     * Generated from protobuf field <code>bool chunk_first = 6 [json_name = "chunkFirst"];</code>
+     */
+    protected $chunk_first = false;
+    /**
+     * Generated from protobuf field <code>bool chunk_last = 7 [json_name = "chunkLast"];</code>
+     */
+    protected $chunk_last = false;
+    /**
+     * Generated from protobuf field <code>int64 chunk_no = 8 [json_name = "chunkNo"];</code>
+     */
+    protected $chunk_no = 0;
+    /**
+     * Generated from protobuf field <code>int64 total_size = 9 [json_name = "totalSize"];</code>
+     */
+    protected $total_size = 0;
+    /**
+     * Generated from protobuf field <code>bytes data = 10 [json_name = "data"];</code>
+     */
+    protected $data = '';
 
     /**
      * Constructor.
@@ -42,10 +62,15 @@ class PubMessageRequest extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $topic
-     *     @type string $body
+     *     @type string $msg_uuid
      *     @type int|string $postpone
      *     @type int|string $retention
      *     @type array|\Google\Protobuf\Internal\MapField $variables
+     *     @type bool $chunk_first
+     *     @type bool $chunk_last
+     *     @type int|string $chunk_no
+     *     @type int|string $total_size
+     *     @type string $data
      * }
      */
     public function __construct($data = NULL) {
@@ -76,23 +101,23 @@ class PubMessageRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>bytes body = 2 [json_name = "body"];</code>
+     * Generated from protobuf field <code>string msg_uuid = 2 [json_name = "msgUuid"];</code>
      * @return string
      */
-    public function getBody()
+    public function getMsgUuid()
     {
-        return $this->body;
+        return $this->msg_uuid;
     }
 
     /**
-     * Generated from protobuf field <code>bytes body = 2 [json_name = "body"];</code>
+     * Generated from protobuf field <code>string msg_uuid = 2 [json_name = "msgUuid"];</code>
      * @param string $var
      * @return $this
      */
-    public function setBody($var)
+    public function setMsgUuid($var)
     {
-        GPBUtil::checkString($var, False);
-        $this->body = $var;
+        GPBUtil::checkString($var, True);
+        $this->msg_uuid = $var;
 
         return $this;
     }
@@ -159,6 +184,116 @@ class PubMessageRequest extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
         $this->variables = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool chunk_first = 6 [json_name = "chunkFirst"];</code>
+     * @return bool
+     */
+    public function getChunkFirst()
+    {
+        return $this->chunk_first;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool chunk_first = 6 [json_name = "chunkFirst"];</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setChunkFirst($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->chunk_first = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool chunk_last = 7 [json_name = "chunkLast"];</code>
+     * @return bool
+     */
+    public function getChunkLast()
+    {
+        return $this->chunk_last;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool chunk_last = 7 [json_name = "chunkLast"];</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setChunkLast($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->chunk_last = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 chunk_no = 8 [json_name = "chunkNo"];</code>
+     * @return int|string
+     */
+    public function getChunkNo()
+    {
+        return $this->chunk_no;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 chunk_no = 8 [json_name = "chunkNo"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setChunkNo($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->chunk_no = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 total_size = 9 [json_name = "totalSize"];</code>
+     * @return int|string
+     */
+    public function getTotalSize()
+    {
+        return $this->total_size;
+    }
+
+    /**
+     * Generated from protobuf field <code>int64 total_size = 9 [json_name = "totalSize"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setTotalSize($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->total_size = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bytes data = 10 [json_name = "data"];</code>
+     * @return string
+     */
+    public function getData()
+    {
+        return $this->data;
+    }
+
+    /**
+     * Generated from protobuf field <code>bytes data = 10 [json_name = "data"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setData($var)
+    {
+        GPBUtil::checkString($var, False);
+        $this->data = $var;
 
         return $this;
     }
